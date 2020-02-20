@@ -1,0 +1,21 @@
+.gameboard {
+  margin: 0 auto;
+}
+
+.btn-start {
+  width: 400px;
+  height: 50px;
+  background: #ecf0f1;
+  color: #2c3e50;
+  font-size: 2.0rem;
+  position: absolute;
+  left: calc(50% - 200px);
+}
+
+.hide {
+  display: none;
+}
+
+* {
+  font-family: 'Arial';
+}

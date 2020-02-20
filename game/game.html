@@ -2,18 +2,31 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Game</title>
-    <link rel="stylesheet" href="game.css">
+    <title>The game of pianist</title>
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/piano.css">
   </head>
   <body>
+    
     <div class="gameboard">
-      <div id="celeste" class="color celeste left" data-color="celeste"></div>
-      <div id="violeta" class="color violeta right" data-color="violeta"></div>
-      <div id="naranja" class="color naranja left" data-color="naranja"></div>
-      <div id="verde" class="color verde right" data-color="verde"></div>
+      <ul class="set">
+        <li id="b" class="white b" data-nota="b"></li>
+        <li id="as" class="black as" data-nota="as"></li>
+        <li id="a" class="white a" data-nota="a"></li>
+        <li id="gs" class="black gs" data-nota="gs"></li>
+        <li id="g" class="white g" data-nota="g"></li>
+        <li id="fs" class="black fs" data-nota="fs"></li>
+        <li id="f" class="white f" data-nota="f"></li>
+        <li id="e" class="white e" data-nota="e"></li>
+        <li id="ds" class="black ds" data-nota="ds"></li>
+        <li id="d" class="white d" data-nota="d"></li>
+        <li id="cs" class="black cs" data-nota="cs"></li>
+        <li id="c" class="white c" data-nota="c"></li>
+      </ul>
       <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
-    </div>
+    </div> 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <script src="game.js"></script>
+    <script src="js/game.js"></script>
   </body>
 </html>
