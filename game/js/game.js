@@ -11,6 +11,19 @@ const d = document.getElementById('d')
 const cs = document.getElementById('cs')
 const c = document.getElementById('c')
 
+const sound_b = document.getElementById('sound_b')
+const sound_as = document.getElementById('sound_as')
+const sound_a = document.getElementById('sound_a')
+const sound_gs = document.getElementById('sound_gs')
+const sound_g = document.getElementById('sound_g')
+const sound_fs = document.getElementById('sound_fs')
+const sound_f = document.getElementById('sound_f')
+const sound_e = document.getElementById('sound_e')
+const sound_ds = document.getElementById('sound_ds')
+const sound_d = document.getElementById('sound_d')
+const sound_cs = document.getElementById('sound_cs')
+const sound_c = document.getElementById('sound_c')
+
 const btnEmpezar = document.getElementById('btnEmpezar')
 const ULTIMO_NIVEL = 10
 
@@ -28,6 +41,13 @@ class Juego {
     this.nivel = 1
     this.notas = {
       b, as, a, gs, g, fs, f, e, ds, d, cs, c
+    }
+
+    this.sounds = {
+      sound_b, sound_as, sound_a, 
+      sound_gs, sound_g, sound_fs, 
+      sound_f, sound_e, sound_ds, 
+      sound_d, sound_cs, sound_c
     }
   }
 
@@ -107,11 +127,44 @@ class Juego {
     }
   }
 
+  reproducirSonido(nota) {
+    switch(nota) {
+      case 'b':
+        this.sounds.sound_b.play()
+      case 'as':
+        this.sounds.sound_as.play()
+      case 'a':
+        this.sounds.sound_a.play()
+      case 'gs':
+        this.sounds.sound_gs.play()
+      case 'g':
+        this.sounds.sound_g.play()
+       case 'fs':
+        this.sounds.sound_fs.play()
+      case 'f':
+        this.sounds.sound_f.play()
+      case 'e':
+        this.sounds.sound_e.play()
+      case 'ds':
+        this.sounds.sound_ds.play()
+      case 'd':
+        this.sounds.sound_d.play()
+      case 'cs':
+        this.sounds.sound_cs.play()
+       case 'c':
+        this.sounds.sound_c.play()
+      }
+  }
+
   iluminarSecuencia(){
+    let time = 0
     for (let i = 0; i < this.nivel; i++) {
       const nota = this.transformarNumeroANota(this.secuencia[i])
+      setTimeout(() => this.reproducirSonido(nota), 1000 * i)
       setTimeout(() => this.iluminarNota(nota), 1000 * i)
+      time++
     }
+    setTimeout(() => this.agregarEventosClick(), 700 * time)
   }
 
   iluminarNota(nota){
@@ -158,18 +211,25 @@ class Juego {
     const nombreNota = ev.target.dataset.nota
     const numeroNota = this.transformarNotaANumero(nombreNota)
     this.iluminarNota(nombreNota)
+    this.reproducirSonido(nombreNota)
+    
     if(numeroNota === this.secuencia[this.subnivel]){
+      this.aumentarNumeroPuntos()
       this.subnivel++
       if(this.subnivel === this.nivel){
+        this.aumentarNumeroNivel()
         this.nivel++
         this.eliminarEventosClick()
         if(this.nivel === (ULTIMO_NIVEL + 1)){
           this.ganoElJuego()
+          this.aumentarNumeroNivel(1)
         } else{
           setTimeout(this.siguienteNivel, 1500)
         }
       }
     }else{
+      this.aumentarNumeroNivel(1)
+      this.aumentarNumeroPuntos(1)
       this.perdioElJuego()
     }
   }
@@ -187,6 +247,20 @@ class Juego {
       this.eliminarEventosClick()
       this.inicializar()
     })
+  }
+
+  aumentarNumeroPuntos(reinicio) {
+    var points = document.getElementById('puntos');
+    var numberpoints = points.innerHTML;
+    (reinicio)? numberpoints=0 : numberpoints++
+    points.innerHTML = numberpoints;
+  }
+
+  aumentarNumeroNivel(reinicio) {
+    var level = document.getElementById('nivel');
+    var number = level.innerHTML;
+    (reinicio)? number= 0 : number ++
+    level.innerHTML = number;
   }
 }
 
