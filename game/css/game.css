@@ -16,6 +16,16 @@
   display: none;
 }
 
+h1{
+  text-align: center;
+  color: white;
+}
+
+p{
+  text-align: center;
+  color: white;
+}
+
 * {
   font-family: 'Arial';
 }

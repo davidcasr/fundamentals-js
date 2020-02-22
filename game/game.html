@@ -9,14 +9,10 @@
   </head>
   <body>
     
-    <div class="header">
-      <ul>
-          <li>Nivel: <span id="nivel">1</span></li>
-          <li>The game of pianist</li>
-          <li>Puntos: <span id="puntos">0</span></li>
-      </ul>
-    </div>
-
+    <h1>The game of pianist</h1>
+    <p><b>Nivel:</b> <span id="nivel">1</span></p>
+    <p><b>Puntos:</b> <span id="puntos">0</span></p>
+    
     <div class="gameboard">
       <ul class="set">
         <li id="b" class="white b" data-nota="b"></li>
@@ -34,22 +30,6 @@
       </ul>
       <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
     </div> 
-    
-    <section class="sound_secuencia">
-      <audio id="sound_b" src="sounds/piano-b.wav"></audio>
-      <audio id="sound_as" src="sounds/piano-as.wav"></audio>
-      <audio id="sound_a" src="sounds/piano-a.wav"></audio>
-      <audio id="sound_gs" src="sounds/piano-gs.wav"></audio>
-      <audio id="sound_g" src="sounds/piano-g.wav"></audio>
-      <audio id="sound_fs" src="sounds/piano-fs.wav"></audio>
-      <audio id="sound_f" src="sounds/piano-f.wav"></audio>
-      <audio id="sound_e" src="sounds/piano-e.wav"></audio>
-      <audio id="sound_ds" src="sounds/piano-ds.wav"></audio>
-      <audio id="sound_d" src="sounds/piano-d.wav"></audio>
-      <audio id="sound_cs" src="sounds/piano-cs.wav"></audio>
-      <audio id="sound_c" src="sounds/piano-c.wav"></audio>
-    </section> 
-
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="js/game.js"></script>
